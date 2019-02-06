@@ -15,4 +15,8 @@ contract ZombieFactory {
   function _createZombie(string _name, uint _dna) private {
     zombies.push(Zombie(_name, _dna)); //adds a new 'Zombie[]' struct to the zombies array
   } //end function createZombie()
+
+  function generateRandomDna(string _str) private view returns (uint) {
+
+  } //end function generateRandomDna()
 } //end contract ZombieFactory {}
