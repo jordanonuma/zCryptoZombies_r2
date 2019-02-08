@@ -20,4 +20,9 @@ contract ZombieFactory {
     uint rand = uint(keccak256(abi.encodePacked(_str)));
     return rand % dnaModulus; //makes sure integer is only 16 digits long
   } //end function generateRandomDna()
+
+  function createRandomZombie(string _name) public {
+    uint randDna = _generateRandomDna(_name);
+    _createZombie(_name, randDna);
+  } //end function createRandomZombie()
 } //end contract ZombieFactory {}
