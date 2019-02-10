@@ -14,6 +14,9 @@ contract ZombieFactory {
 
   Zombie[] public zombies; //public array 'zombies' made up of the 'Zombie' structs
 
+  mapping (uint => address) public zombieToOwner;
+  mapping (address => uint) ownerZombieCount;
+
   function _createZombie(string _name, uint _dna) private {
     //adds a new 'Zombie[]' struct to the zombies array
     uint id = zombies.push(Zombie(_name, _dna)) - 1; //array.push() returns array's length [uint]. Subtract 1 for 0 index start
