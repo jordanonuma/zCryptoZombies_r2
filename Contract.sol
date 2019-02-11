@@ -20,6 +20,8 @@ contract ZombieFactory {
   function _createZombie(string _name, uint _dna) private {
     //adds a new 'Zombie[]' struct to the zombies array
     uint id = zombies.push(Zombie(_name, _dna)) - 1; //array.push() returns array's length [uint]. Subtract 1 for 0 index start
+    zombieToOwner[id] = msg.sender;
+    ownerZombieCount[msg.sender]++;
     emit NewZombie(id, _name, _dna);
   } //end function createZombie()
 
