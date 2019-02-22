@@ -17,9 +17,11 @@ contract KittyInterface {
 } //end contract KittyInterface {}
 
 contract ZombieFeeding is ZombieFactory {
-  address ckAddress = 0x06012c8cf97BEaD5deAe237070F9587f8E7A266d; //CryptoKitties contract address
+  KittyInterface kittyContract
 
-  KittyInterface kittyContract = KittInterface(ckAddress);
+  function setKittyContractAddress(address _address) external {
+    kittyContract = KittyInterface(_address);
+  } //end setKittyContractAddress()
 
   function feedAndMultiply(uint _zombieId, uint _targetDna, string _species) public {
       require(msg.sender == zombieToOwner[_zombieId]);
