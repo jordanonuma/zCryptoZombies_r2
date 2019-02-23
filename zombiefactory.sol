@@ -1,7 +1,8 @@
 pragma solidity ^0.4.25; //1. Enter solidity version here
+import "./ownable.sol";
 
 //2. Create contract here
-contract ZombieFactory {
+contract ZombieFactory is Ownable {
   event NewZombie(uint zombieId, string name, uint dna);
 
   uint dnaDigits = 16; //uint must be non-negative and are stored to the blockchain
