@@ -19,7 +19,7 @@ contract KittyInterface {
 contract ZombieFeeding is ZombieFactory {
   KittyInterface kittyContract
 
-  function setKittyContractAddress(address _address) external onlyOwner {
+  function setKittyContractAddress(address _address) external onlyOwner { //onlyOwner modifier from ownable.sol
     kittyContract = KittyInterface(_address);
   } //end setKittyContractAddress()
 
