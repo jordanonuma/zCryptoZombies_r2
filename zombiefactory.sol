@@ -7,6 +7,7 @@ contract ZombieFactory is Ownable {
 
   uint dnaDigits = 16; //uint must be non-negative and are stored to the blockchain
   uint dnaModulus = 10 ** dnaDigits;
+  uint cooldownTime = 1 days;
 
   struct Zombie {
     string name;
@@ -22,7 +23,7 @@ contract ZombieFactory is Ownable {
 
   function _createZombie(string _name, uint _dna) internal {
     //adds a new 'Zombie[]' struct to the zombies array
-    uint id = zombies.push(Zombie(_name, _dna)) - 1; //array.push() returns array's length [uint]. Subtract 1 for 0 index start
+    uint id = zombies.push(Zombie(_name, _dna, 1, uint32(now + cooldownTime))) - 1; //array.push() returns array's length [uint]. Subtract 1 for 0 index start
     zombieToOwner[id] = msg.sender;
     ownerZombieCount[msg.sender]++;
     emit NewZombie(id, _name, _dna);
