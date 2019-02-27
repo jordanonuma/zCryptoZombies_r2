@@ -17,11 +17,19 @@ contract KittyInterface {
 } //end contract KittyInterface {}
 
 contract ZombieFeeding is ZombieFactory {
-  KittyInterface kittyContract
+  KittyInterface kittyContract;
 
   function setKittyContractAddress(address _address) external onlyOwner { //onlyOwner modifier from ownable.sol
     kittyContract = KittyInterface(_address);
   } //end setKittyContractAddress()
+
+  function _triggerCooldown(Zombie storage _zombie) internal {
+    _zombie.readyTime = uint32(now + cooldownTime); //"coolDownTime = 1 days;" in zombiefactory.sol
+  } //end function _triggerCooldown()
+
+  function _isReady(Zombie storage _zombie) internal view returns(bool) {
+    return (_zombie.readyTime <= now);
+  } //end function _isReady()
 
   function feedAndMultiply(uint _zombieId, uint _targetDna, string _species) public {
       require(msg.sender == zombieToOwner[_zombieId]);
