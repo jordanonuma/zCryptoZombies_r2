@@ -19,6 +19,11 @@ contract KittyInterface {
 contract ZombieFeeding is ZombieFactory {
   KittyInterface kittyContract;
 
+  modifier ownerOf(uint _zombieId) {
+    require(msg.sender == zombieToOwner[_zombieId]);
+    _;
+  } //end modifier ownerOf()
+
   function setKittyContractAddress(address _address) external onlyOwner { //onlyOwner modifier from ownable.sol
     kittyContract = KittyInterface(_address);
   } //end setKittyContractAddress()
@@ -31,8 +36,7 @@ contract ZombieFeeding is ZombieFactory {
     return (_zombie.readyTime <= now);
   } //end function _isReady()
 
-  function feedAndMultiply(uint _zombieId, uint _targetDna, string _species) internal {
-      require(msg.sender == zombieToOwner[_zombieId]);
+  function feedAndMultiply(uint _zombieId, uint _targetDna, string _species) internal ownerOf {
       Zombie storage myZombie = zombies[_zombieId]; //permament on blockchain as opposed to in memory.
                                                     //called in require(_isReady(myZombie)) and _triggerCooldown(myZombie)
       require(_isReady(myZombie)); //checks if cooldown time has passed
