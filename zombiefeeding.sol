@@ -36,7 +36,7 @@ contract ZombieFeeding is ZombieFactory {
     return (_zombie.readyTime <= now);
   } //end function _isReady()
 
-  function feedAndMultiply(uint _zombieId, uint _targetDna, string _species) internal ownerOf {
+  function feedAndMultiply(uint _zombieId, uint _targetDna, string _species) internal ownerOf(_zombieId) {
       Zombie storage myZombie = zombies[_zombieId]; //permament on blockchain as opposed to in memory.
                                                     //called in require(_isReady(myZombie)) and _triggerCooldown(myZombie)
       require(_isReady(myZombie)); //checks if cooldown time has passed
