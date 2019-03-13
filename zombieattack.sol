@@ -11,7 +11,9 @@ function randMod(uint _modulus) internal returns(uint) {
 } //end function randMod()
 
 function attack(uint _zombieId, uint _targetId) external ownerOf(_zombieId) {
-
+  Zombie storage myZombie = zombies[_zombieId];
+  Zombie storage enemyZombie = zombies[_targetId];
+  uint rand = randMod(100);
 } //end function attack()
 
 } //end contract ZombieAttack {}
