@@ -25,7 +25,7 @@ contract ZombieFactory is Ownable {
 
   function _createZombie(string _name, uint _dna) internal {
     //adds a new 'Zombie[]' struct to the zombies array
-    uint id = zombies.push(Zombie(_name, _dna, 1, uint32(now + cooldownTime))) - 1; //array.push() returns array's length [uint]. Subtract 1 for 0 index start
+    uint id = zombies.push(Zombie(_name, _dna, 1, uint32(now + cooldownTime), 0, 0)) - 1; //array.push() returns array's length [uint]. Subtract 1 for 0 index start
     zombieToOwner[id] = msg.sender;
     ownerZombieCount[msg.sender]++;
     emit NewZombie(id, _name, _dna);
