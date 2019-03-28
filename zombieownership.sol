@@ -2,6 +2,9 @@ pragma solidity ^0.4.25;
 import "./zombieattack.sol";
 import "./erc721.sol";
 
+// @title: tracking zombies and their owners
+// @author: n/a
+// @dev: NFT practice using OpenZeppelin's ERC721 contract
 contract ZombieOwnership is ZombieAttack, ERC721 {
   mapping (uint => address) zombieApprovals;
 
