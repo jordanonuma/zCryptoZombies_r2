@@ -11,7 +11,11 @@
     <script>
       // Start here
       var cryptoZombies;
-      
+      function startApp() {
+        var cryptoZombiesAddress = "YOUR_CONTRACT_ADDRESS";
+        cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, cryptoZombiesAddress);
+      } //end function startApp()
+
       window.addEventListener('load', function() {
         // Checking if Web3 has been injected by the browser (Mist/MetaMask)
         if (typeof web3 !== 'undefined') {
