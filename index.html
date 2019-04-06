@@ -25,6 +25,13 @@
             getZombiesByOwner();
            .then(displayZombies);}//end if(userAccount is not accounts[0] assigns userAccount to currently active account--account[0])
         }, 100); //end setInterval()
+
+        cryptoZombies.events.Transfer({ filter: { _to: userAccount } })
+        .on("data", function(event) {
+          let data = event.returnValues;
+          // The current user just received a zombie!
+          // Do something here to update the UI to show it
+        }).on("error", console.error);
       } //end function startApp()
 
       function displayZombies(ids) {
