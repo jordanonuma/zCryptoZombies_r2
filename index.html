@@ -32,7 +32,6 @@
           // The current user just received a zombie! UI is updated with 'displayZombies':
           getZombiesByOwner(userAccount).then(displayZombies);
         }).on("error", console.error);
-
       } //end function startApp()
 
       function displayZombies(ids) {
