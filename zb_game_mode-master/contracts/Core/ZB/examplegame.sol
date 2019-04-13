@@ -54,7 +54,8 @@ contract ExampleGame is ZBGameMode  {
 
       for (uint j = 0; j <gameState.playerStates[i].cardsInDeck.length; j++) {
         if (isLegalCard(gameState.playerStates[i].cardsInDeck[j])) {
-
+          newCards[cardCount] = gameState.playerStates[i].cardsInDeck[j];
+          cardCount++;
         } //end if()
       } //end for (j<totalcards)
     } //end for (i<totalplayers)
