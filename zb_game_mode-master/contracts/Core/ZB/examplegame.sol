@@ -61,6 +61,8 @@ contract ExampleGame is ZBGameMode  {
 
       changes.changePlayerCardsInDeck(Player(i), newCards, cardCount);
     } //end for (i<totalplayers)
+    
+    changes.emit(); //passes the local 'changes' data type back to core game logic
   } //end function beforeMatchStart()
 
   function isLegalCard(CardInstance card) internal view returns(bool) {
