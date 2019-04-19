@@ -3,6 +3,8 @@ import "./ERC721XToken.sol";
 
 contract ZombieCard is ERC721XToken {
 
+mapping (uint => uint) internal tokenIdToIndividualSupply;
+
   function name() external view returns (string) {
       return "ZombieCard";
   } //end function name()
