@@ -12,4 +12,8 @@ mapping (uint => uint) internal tokenIdToIndividualSupply;
   function symbol() external view returns (string) {
     return "ZCX";
   } //end function symbol()
+
+  function individualSupply(uint _tokenId) public view returns (uint) {
+    return tokenIdToIndividualSupply[_tokenId];
+  } //end function individualSupply()
 } //end contract {}
