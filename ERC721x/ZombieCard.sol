@@ -19,6 +19,6 @@ mapping (uint => uint) internal tokenIdToIndividualSupply;
   } //end function individualSupply()
 
   function mintToken(uint _tokenId, uint _supply) public onlyOwner {
-
+    require(!exists(_tokenId), "Error: Tried to mint duplicate token id");
   } //end function mintToken()
 } //end contract {}
