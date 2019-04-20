@@ -17,4 +17,8 @@ mapping (uint => uint) internal tokenIdToIndividualSupply;
   function individualSupply(uint _tokenId) public view returns (uint) {
     return tokenIdToIndividualSupply[_tokenId];
   } //end function individualSupply()
+
+  function mintToken(uint _tokenId, uint _supply) public onlyOwner {
+
+  } //end function mintToken()
 } //end contract {}
