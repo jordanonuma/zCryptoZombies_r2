@@ -26,6 +26,6 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
   } //end function mintToken()
 
   function awardToken(uint _tokenId, address _to, uint _amount) public onlyOwner {
-
+    require(exists(_tokenId), "TokenID has not been minted");
   } //end function awardToken()
 } //end contract {}
