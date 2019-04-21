@@ -5,6 +5,7 @@ import "./Ownable.sol";
 contract ZombieCard is ERC721XToken {
 
 mapping (uint => uint) internal tokenIdToIndividualSupply;
+event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
 
   function name() external view returns (string) {
       return "ZombieCard";
