@@ -31,6 +31,7 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
       if (individualSupply[_tokenId] > 0) {
         require(_amount <= balanceOf(msg.sender, tokenId), "Quantity greater than remaining cards");
         _updateTokenBalance(_from, _tokenId, _amount, ObjectLib.Operations.SUB);
+        emit TokenAwarded(_tokenId, _to, _amount);
       }
     } //end if(token is NFT)
   } //end function awardToken()
