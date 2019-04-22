@@ -28,7 +28,10 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
   function awardToken(uint _tokenId, address _to, uint _amount) public onlyOwner {
     require(exists(_tokenId), "TokenID has not been minted");
     if (individualSupply[_tokenId] > 0) {
+      if (individualSupply[_tokenId] > 0) {
+        require(_amount <= balanceOf(msg.sender, tokenId), "Quantity greater than remaining cards");
 
+      }
     } //end if(token is NFT)
   } //end function awardToken()
 } //end contract {}
