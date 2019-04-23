@@ -39,5 +39,6 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
 
   function convertToNFT(uint _tokenId, uint _amount) public {
     require(tokenType[_tokenId] == FT);
+    require(_amount <= balanceOf(msg.sender, _tokenId), "You do not own enough tokens");
   } //end function convertToNFT()
 } //end contract {}
