@@ -38,6 +38,6 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
   } //end function awardToken()
 
   function convertToNFT(uint _tokenId, uint _amount) public {
-
+    require(tokenType[_tokenId] == FT);
   } //end function convertToNFT()
 } //end contract {}
