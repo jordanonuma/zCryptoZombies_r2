@@ -42,7 +42,7 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
     require(_amount <= balanceOf(msg.sender, _tokenId), "You do not own enough tokens");
     _updateTokenBalance(msg.sender, _tokenId, _amount, ObjectLib.Operations.SUB);
     for (uint i = 0; i < _amount ; i++) {
-
+      _mint(nftTokenIdIndex, msg.sender);
     } //end for()
   } //end function convertToNFT()
 } //end contract {}
