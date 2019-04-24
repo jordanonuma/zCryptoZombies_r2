@@ -43,6 +43,7 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
     _updateTokenBalance(msg.sender, _tokenId, _amount, ObjectLib.Operations.SUB);
     for (uint i = 0; i < _amount ; i++) {
       _mint(nftTokenIdIndex, msg.sender);
+      nftTokenIdToMouldId[nftTokenIdIndex] = _tokenId;
     } //end for()
   } //end function convertToNFT()
 } //end contract {}
