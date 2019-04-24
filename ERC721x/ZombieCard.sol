@@ -44,6 +44,7 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
     for (uint i = 0; i < _amount ; i++) {
       _mint(nftTokenIdIndex, msg.sender);
       nftTokenIdToMouldId[nftTokenIdIndex] = _tokenId;
+      nftTokenIdIndex++;
     } //end for()
   } //end function convertToNFT()
 } //end contract {}
