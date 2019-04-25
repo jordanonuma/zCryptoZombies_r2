@@ -49,6 +49,7 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
   } //end function convertToNFT()
 
   function convertToFT(uint _tokenId) public {
-
+    require(tokenType[_tokenId] == NFT);
+    require(ownerOf(_tokenId) == msg.sender, "You do not own this token");
   } //end function convertToFT()
 } //end contract {}
