@@ -47,4 +47,8 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
       nftTokenIdIndex++;
     } //end for()
   } //end function convertToNFT()
+
+  function convertToFT(uint _tokenId) public {
+
+  } //end function convertToFT()
 } //end contract {}
