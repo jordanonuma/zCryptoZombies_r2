@@ -53,5 +53,6 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
     require(ownerOf(_tokenId) == msg.sender, "You do not own this token");
     _updateTokenBalance(msg.sender, _tokenId, 0, ObjectLib.Operations.REPLACE);
     _updateTokenBalance(msg.sender, nftTokenIdToMouldId[_tokenId], 1, ObjectLib.Operations.ADD);
+    emit TransferWithQuantity(address(this), msg.sender, nftTokenIdToMouldI[_tokenId], 1);
   } //end function convertToFT()
 } //end contract {}
