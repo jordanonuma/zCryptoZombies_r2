@@ -21,6 +21,10 @@ event TokenAwarded(uint indexed tokenId, address claimer, uint amount);
     return tokenIdToIndividualSupply[_tokenId];
   } //end function individualSupply()
 
+  function batchMintTokens(uint[] _tokenIds, uint[] _tokenSupplies) external onlyOwner {
+
+  } //end function batchMintTokens()
+
   function mintToken(uint _tokenId, uint _supply) public onlyOwner {
     require(!exists(_tokenId), "Error: Tried to mint duplicate token id");
     _mint(_tokenId, msg.sender, _supply);
